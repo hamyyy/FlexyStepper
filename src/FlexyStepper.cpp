@@ -221,7 +221,7 @@ FlexyStepper::FlexyStepper()
 //          enablePinNumber = IO pin number for the enable bit (LOW is enabled)
 //            set to 0 if enable is not supported
 //
-void FlexyStepper::connectToPins(byte stepPinNumber, byte directionPinNumber)
+void FlexyStepper::connectToPins(uint8_t stepPinNumber, uint8_t directionPinNumber)
 {
   //
   // remember the pin numbers
@@ -229,23 +229,23 @@ void FlexyStepper::connectToPins(byte stepPinNumber, byte directionPinNumber)
   stepPin      = stepPinNumber;
   directionPin = directionPinNumber;
 
-  invertedStepPin      = false;
-  invertedDirectionPin = false;
+  invertStepFlag      = false;
+  invertDirectionFlag = false;
 
   //
   // configure the IO bits
   //
   pinMode(stepPin, OUTPUT);
-  digitalWrite(stepPin, !invertedStepPin);
+  digitalWrite(stepPin, !invertStepFlag);
 
   pinMode(directionPin, OUTPUT);
-  digitalWrite(directionPin, !invertedDirectionPin);
+  digitalWrite(directionPin, !invertDirectionFlag);
 }
 
 void FlexyStepper::setInvertedPins(bool invertStepPin, bool invertDirectionPin)
 {
-  invertedStepPin      = invertStepPin;
-  invertedDirectionPin = invertDirectionPin;
+  invertStepFlag      = invertStepPin;
+  invertDirectionFlag = invertDirectionPin;
 }
 
 // ---------------------------------------------------------------------------------
@@ -981,7 +981,7 @@ void FlexyStepper::DeterminePeriodOfNextStep()
     }
     else {
       directionOfMotion = -1;
-      digitalWrite(directionPin, !invertedDirectionPin);
+      digitalWrite(directionPin, !invertDirectionFlag);
     }
   }
 

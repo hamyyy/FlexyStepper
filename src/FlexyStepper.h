@@ -48,7 +48,7 @@ class FlexyStepper
     // public functions
     //
     FlexyStepper();
-    void connectToPins(byte stepPinNumber, byte directionPinNumber);
+    void connectToPins(uint8_t stepPinNumber, uint8_t directionPinNumber);
     void setInvertedPins(bool invertStepPin, bool invertDirectionPin);
 
     void setStepsPerMillimeter(float motorStepPerMillimeter);
@@ -101,8 +101,8 @@ class FlexyStepper
     //
     // private member variables
     //
-    byte stepPin;
-    byte directionPin;
+    uint8_t stepPin;
+    uint8_t directionPin;
     float stepsPerMillimeter;
     float stepsPerRevolution;
     int directionOfMotion;
@@ -117,7 +117,6 @@ class FlexyStepper
     float nextStepPeriod_InUS;
     unsigned long lastStepTime_InUS;
     float currentStepPeriod_InUS;
-
     bool invertStepFlag;
     bool invertDirectionFlag;
 };
