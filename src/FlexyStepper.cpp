@@ -242,7 +242,7 @@ void FlexyStepper::connectToPins(byte stepPinNumber, byte directionPinNumber)
   digitalWrite(directionPin, !invertedDirectionPin);
 }
 
-void FlexyStepper::setInvertedPins(boolean invertStepPin, boolean invertDirectionPin)
+void FlexyStepper::setInvertedPins(bool invertStepPin, bool invertDirectionPin)
 {
   invertedStepPin      = invertStepPin;
   invertedDirectionPin = invertDirectionPin;
