@@ -49,6 +49,7 @@ class FlexyStepper
     //
     FlexyStepper();
     void connectToPins(byte stepPinNumber, byte directionPinNumber);
+    void setInvertedPins(boolean invertStepPin, boolean invertDirectionPin);
 
     void setStepsPerMillimeter(float motorStepPerMillimeter);
     float getCurrentPositionInMillimeters();
@@ -116,6 +117,9 @@ class FlexyStepper
     float nextStepPeriod_InUS;
     unsigned long lastStepTime_InUS;
     float currentStepPeriod_InUS;
+
+    bool invertStepFlag;
+    bool invertDirectionFlag;
 };
 
 // ------------------------------------ End ---------------------------------
